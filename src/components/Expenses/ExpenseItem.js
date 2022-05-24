@@ -6,8 +6,11 @@ import './ExpenseItem.css'
 
 const ExpenseItem = (props) => {
   //function clickHandler(){}
-  const [title, setTitle] = useState(props.title) //must be called inside component function
+
+  //must be called inside component function
   //First state is the value, section state is setting a new state
+  const [title, setTitle] = useState(props.title)
+  console.log('ExpenseItem evaluated by React')
 
   // let title = props.title
 
