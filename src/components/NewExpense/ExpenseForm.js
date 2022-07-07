@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import './ExpenseForm.css'
+import React, { useState } from "react";
+import "./ExpenseForm.css";
 
 const ExpenseForm = (props) => {
   //Can have more then 1 state set per component
-  const [enteredTitle, setEnteredTitle] = useState('') //sate variable
-  const [enteredAmount, setEnteredAmount] = useState('')
-  const [enteredDate, setEnteredDate] = useState('')
+  const [enteredTitle, setEnteredTitle] = useState(""); //sate variable
+  const [enteredAmount, setEnteredAmount] = useState("");
+  const [enteredDate, setEnteredDate] = useState("");
 
   //useState once while passing in the object if they are under same div
   // const [userInput, setUserInput] = useState({
@@ -15,7 +15,7 @@ const ExpenseForm = (props) => {
   // })
 
   const titleChangeHandler = (event) => {
-    setEnteredTitle(event.target.value)
+    setEnteredTitle(event.target.value);
     // console.log(event.target.value)
     // enteredTitle: event.target.value,
     //this is to ensure the other value does not go away
@@ -32,40 +32,40 @@ const ExpenseForm = (props) => {
     //     enteredTitle: event.target.value,
     //   }
     // })
-  }
+  };
 
   const amountChangeHandler = (event) => {
-    setEnteredAmount(event.target.value)
+    setEnteredAmount(event.target.value);
     // setUserInput({
     //   ...userInput,
     //   enteredAmount: event.target.value,
     // })
-  }
+  };
 
   const dateChangeHandler = (event) => {
-    setEnteredDate(event.target.value)
+    setEnteredDate(event.target.value);
     // setUserInput({
     //   ...userInput,
     //   enteredDate: event.target.value,
     // })
-  }
+  };
 
   const sumbitHandler = (event) => {
     //manually collect and combine data
-    event.preventDefault() //stay on current page without reload
+    event.preventDefault(); //stay on current page without reload
 
     const expenseData = {
       title: enteredTitle, //pointing to the state variables
       amount: enteredAmount,
       date: new Date(enteredDate),
-    }
+    };
 
-    props.onSaveExpenseData(expenseData)
+    props.onSaveExpenseData(expenseData);
     //two-way binding
-    setEnteredTitle('')
-    setEnteredAmount('')
-    setEnteredDate('')
-  }
+    setEnteredTitle("");
+    setEnteredAmount("");
+    setEnteredDate("");
+  };
 
   return (
     <form onSubmit={sumbitHandler}>
@@ -103,10 +103,13 @@ const ExpenseForm = (props) => {
       </div>
 
       <div className="new-expense__actions">
+        <button type="button" onClick={props.onCancel}>
+          Cancel
+        </button>
         <button type="sumbit">Add Expense</button>
       </div>
     </form>
-  )
-}
+  );
+};
 
-export default ExpenseForm
+export default ExpenseForm;
