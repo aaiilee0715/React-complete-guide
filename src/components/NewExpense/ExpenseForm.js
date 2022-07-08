@@ -54,9 +54,14 @@ const ExpenseForm = (props) => {
     //manually collect and combine data
     event.preventDefault(); //stay on current page without reload
 
+    // const expenseData = {
+    //   title: enteredTitle,
+    //   amount: enteredAmount,
+    //   date: new Date(enteredDate),
+    // };
     const expenseData = {
-      title: enteredTitle, //pointing to the state variables
-      amount: enteredAmount,
+      title: enteredTitle,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
     };
 
